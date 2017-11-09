@@ -5,6 +5,8 @@
  */
 package bmi_2;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -29,15 +31,20 @@ public class BMI_2 {
     W = Double.parseDouble(weight);
     
     BMI = (W/(H*H/10000));
-    String multiLineMsg[] = {"Dear "+name+ ",", "Your Body Mass Index is", " "+BMI} ;
+    NumberFormat formatter = new DecimalFormat("#0.00");
+    String multiLineMsg[] = {"Dear "+name+ ",", "Your Body Mass Index is", " "+(formatter.format(BMI))} ;
     JOptionPane.showMessageDialog(null, multiLineMsg, "Body Mass Index Calculator", JOptionPane.PLAIN_MESSAGE);
-    if(BMI < 18.5) {JOptionPane.showMessageDialog(null, "You are UNDERWEIGHT", "Body Mass Index Calculator", JOptionPane.PLAIN_MESSAGE);
+    if(BMI < 18.5) {
+        JOptionPane.showMessageDialog(null, "You are UNDERWEIGHT", "Body Mass Index Calculator", JOptionPane.PLAIN_MESSAGE);
     }
-    else if(BMI >= 18.5 && BMI < 25) {JOptionPane.showMessageDialog(null, "Your weight is normal", "Body Mass Index Calculator", JOptionPane.PLAIN_MESSAGE);
+    else if(BMI >= 18.5 && BMI < 25) {
+        JOptionPane.showMessageDialog(null, "Your weight is normal", "Body Mass Index Calculator", JOptionPane.PLAIN_MESSAGE);
     }
-    else if(BMI >= 25 && BMI <30) {JOptionPane.showMessageDialog(null,"You are OVERWEIGHT", "Body Mass Index Calculator", JOptionPane.PLAIN_MESSAGE);
+    else if(BMI >= 25 && BMI <30) {
+        JOptionPane.showMessageDialog(null,"You are OVERWEIGHT", "Body Mass Index Calculator", JOptionPane.PLAIN_MESSAGE);
     }
-    else if (BMI > 30){JOptionPane.showMessageDialog(null, "You are OBESE", "Body Mass Index Calculator", JOptionPane.PLAIN_MESSAGE);
+    else if (BMI > 30){
+        JOptionPane.showMessageDialog(null, "You are OBESE", "Body Mass Index Calculator", JOptionPane.PLAIN_MESSAGE);
     }
     }
     
